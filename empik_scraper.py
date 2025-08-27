@@ -13,31 +13,46 @@ def fetch_html(url):
     r.raise_for_status()
     return r.text
 
+def clean_text(s):
+    return s.replace("\xa0", " ").strip()
+
+def price_to_numeric(price):
+    price = price.replace('zł','').strip()
+    price = price.replace(',', '.').strip()
+    price_float = float(price)
+    return price_float
+
 # get items with prices and names
 def get_items(soup):
-    items_dict = {}
-    items = soup.find_all('div', class_ = 'search-list-item-hover')
-    for item in items:
-        price = item.find('div', class_='price ta-price-tile').text
-        name = item.find('strong', class_ = 'ta-product-title').text
-        if price and name:
-            items_dict[name] = price
-        else:
-            continue
+    results = []
+    cards = soup.find_all('div', class_ = 'search-list-item-hover')
 
-    # removing unnessesary text
-    cleaned_dict = {k: v.replace('\xa0', ' ').strip() for k, v in items_dict.items()}
+    for card in cards:
 
-    return cleaned_dict
+        price_el = card.find('div', class_='price ta-price-tile')
+        price = clean_text(price_el.get_text(" ", strip=True)) if price_el else ""
+
+        name_el = card.find('strong', class_ = 'ta-product-title')
+        name = clean_text(name_el.get_text(" ", strip=True)) if name_el else ""
+
+        if name and price is not None:
+
+            price_numeric = price_to_numeric(price)
+            results.append({"name": name, "price": price, "price_numeric": price_numeric})
+
+    return results
 
 
+def create_snapshot():
+    pass
+
+# compare price from snapshot and json file
+def compare_price():
+    pass
 
 def to_json(items):
     with open('items.json', 'w' ,encoding='utf-8') as f:
         json.dump(items, f, ensure_ascii=False, indent=2)
-
-
-
 
 if __name__ == "__main__":
     try:
@@ -49,4 +64,6 @@ if __name__ == "__main__":
         print(f"HTTP error: {e}")
     except requests.RequestException as e:
         print(f"Network error: {e}")
+        
+        
 

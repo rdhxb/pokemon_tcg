@@ -1,34 +1,177 @@
-{
-  "Karty Pokémon TCG: Scarlet & Violet - Journey Together - Booster": "24,99 zł",
-  "Karty Pokémon TCG: Scarlet & Violet - Destined Rivals - Booster": "24,99 zł",
-  "Karty Pokemon TCG: Hops Zacian Ex Box": "129,99 zł",
-  "Pokemon TCG: Accessory Pouch Special Collection": "239,99 zł",
-  "Pokémon TCG: Unova Mini Tin - Mienshao - Klinklang": "69,99 zł",
-  "Pokémon TCG: Scarlet & Violet - White Flare - Elite Trainer Box - Reshiram": "279,99 zł",
-  "Pokémon TCG: Scarlet & Violet - White Flare - Binder Collection - Reshiram": "219,99 zł",
-  "Pokémon TCG: Scarlet & Violet - White Flare & Black Bolt - Unova Poster Collection": "129,99 zł",
-  "Pokémon TCG: Unova Mini Tin - Garbodor - Amoongus": "69,99 zł",
-  "Karty Pokémon TCG: Premium Tournament Collection - Lillie": "279,99 zł",
-  "Pokémon TCG: Scarlet & Violet - Black Bolt - Booster Bundle - Zekrom": "149,99 zł",
-  "Pokémon TCG: Scarlet & Violet - White Flare - Booster Bundle - Reshiram": "149,99 zł",
-  "Karty Pokémon TCG: Iono’s Bellibolt ex Premium Collection": "234,99 zł",
-  "Pokémon, TCG: Battle Academy (2024)": "117,99 zł",
-  "Pokémon TCG: Unova Mini Tin - Lilligant - Whimsicott": "69,99 zł",
-  "Karty Pokémon TCG: SV Spring Azure Legends Tin - Dialga ex": "119,99 zł",
-  "Pokémon TCG: Unova Mini Tin - Alomomola - Axew": "69,99 zł",
-  "Karty Pokémon TCG: Cynthia’s Garchomp ex - Premium Collection": "259,99 zł",
-  "Karty Pokémon TCG: Charizard ex Special Collection": "189,99 zł",
-  "Karty Pokémon TCG: Slashing Legends Tin - Zacian ex": "129,99 zł",
-  "Karty Pokémon TCG: SV Spring Azure Legends Tin - Xerneas ex": "119,99 zł",
-  "Pokémon TCG: Unova Mini Tin - Krookodile - Excadrill": "49,99 zł",
-  "Pokémon TCG: Back to School - Pencil Case (2024)": "49,99 zł",
-  "Pokémon TCG: Unova Mini Tin - Chandelure - Zoura": "49,99 zł",
-  "Pokémon TCG: Unova Mini Tin - Volcarona - Emolga": "49,99 zł",
-  "Karty Pokémon TCG: Slashing Legends Tin - Koraidon ex": "129,99 zł",
-  "Pokémon TCG: Unova Mini Tin - Elektross - Galvantula": "49,99 zł",
-  "Karty Pokémon TCG: Scarlet & Violet - Journey Together - Premium Checklane Blister - Klinklang": "39,99 zł",
-  "Karty Pokémon TCG: Paradox Rift Premium Checklane Blister Tinkaton": "389,99 zł",
-  "Pokemon Trenuj ze Mną Magazyn": "19,99 zł",
-  "Mata ULTRA PRO Pokemon Pikachu & Mimikyu Pokemon TCG": "92,99 zł",
-  "Album na karty ULTRA PRO Pokemon 2 cale - Pikachu i Mimikyu Pokemon TCG": "66,99 zł"
-}
+[
+  {
+    "name": "Karty Pokémon TCG: Scarlet & Violet - Journey Together - Booster",
+    "price": "24,99 zł",
+    "price_numeric": 24.99
+  },
+  {
+    "name": "Karty Pokémon TCG: Scarlet & Violet - Destined Rivals - Booster",
+    "price": "24,99 zł",
+    "price_numeric": 24.99
+  },
+  {
+    "name": "Karty Pokemon TCG: Hops Zacian Ex Box",
+    "price": "129,99 zł",
+    "price_numeric": 129.99
+  },
+  {
+    "name": "Pokémon TCG: Scarlet & Violet - Black Bolt - Elite Trainer Box - Zekrom",
+    "price": "279,99 zł",
+    "price_numeric": 279.99
+  },
+  {
+    "name": "Pokemon TCG: Accessory Pouch Special Collection",
+    "price": "239,99 zł",
+    "price_numeric": 239.99
+  },
+  {
+    "name": "Pokémon TCG: Scarlet & Violet - White Flare - Elite Trainer Box - Reshiram",
+    "price": "279,99 zł",
+    "price_numeric": 279.99
+  },
+  {
+    "name": "Pokémon TCG: Unova Mini Tin - Mienshao - Klinklang",
+    "price": "69,99 zł",
+    "price_numeric": 69.99
+  },
+  {
+    "name": "Pokémon TCG: Scarlet & Violet - Black Bolt - Booster Bundle - Zekrom",
+    "price": "149,99 zł",
+    "price_numeric": 149.99
+  },
+  {
+    "name": "Pokémon TCG: Scarlet & Violet - White Flare - Binder Collection - Reshiram",
+    "price": "219,99 zł",
+    "price_numeric": 219.99
+  },
+  {
+    "name": "Pokémon TCG: Scarlet & Violet - White Flare - Booster Bundle - Reshiram",
+    "price": "149,99 zł",
+    "price_numeric": 149.99
+  },
+  {
+    "name": "Pokémon TCG: Unova Mini Tin - Garbodor - Amoongus",
+    "price": "69,99 zł",
+    "price_numeric": 69.99
+  },
+  {
+    "name": "Pokémon TCG: Scarlet & Violet - Black Bolt - Binder Collection - Zekrom",
+    "price": "219,99 zł",
+    "price_numeric": 219.99
+  },
+  {
+    "name": "Karty Pokémon TCG: Premium Tournament Collection - Lillie",
+    "price": "279,99 zł",
+    "price_numeric": 279.99
+  },
+  {
+    "name": "Pokémon TCG: Scarlet & Violet - White Flare & Black Bolt - Unova Poster Collection",
+    "price": "129,99 zł",
+    "price_numeric": 129.99
+  },
+  {
+    "name": "Karty Pokémon TCG: Iono’s Bellibolt ex Premium Collection",
+    "price": "234,99 zł",
+    "price_numeric": 234.99
+  },
+  {
+    "name": "Pokémon, TCG: Battle Academy (2024)",
+    "price": "117,99 zł",
+    "price_numeric": 117.99
+  },
+  {
+    "name": "Pokémon TCG: Unova Mini Tin - Lilligant - Whimsicott",
+    "price": "69,99 zł",
+    "price_numeric": 69.99
+  },
+  {
+    "name": "Karty Pokémon TCG: Cynthia’s Garchomp ex - Premium Collection",
+    "price": "259,99 zł",
+    "price_numeric": 259.99
+  },
+  {
+    "name": "Karty Pokémon TCG: Charizard ex Special Collection",
+    "price": "189,99 zł",
+    "price_numeric": 189.99
+  },
+  {
+    "name": "Pokémon TCG: Unova Mini Tin - Alomomola - Axew",
+    "price": "69,99 zł",
+    "price_numeric": 69.99
+  },
+  {
+    "name": "Karty Pokémon TCG: SV Spring Azure Legends Tin - Dialga ex",
+    "price": "119,99 zł",
+    "price_numeric": 119.99
+  },
+  {
+    "name": "Pokémon TCG: Unova Mini Tin - Krookodile - Excadrill",
+    "price": "49,99 zł",
+    "price_numeric": 49.99
+  },
+  {
+    "name": "Karty Pokémon TCG: Slashing Legends Tin - Zacian ex",
+    "price": "129,99 zł",
+    "price_numeric": 129.99
+  },
+  {
+    "name": "Pokémon TCG: Holiday Calendar 2025",
+    "price": "349,99 zł",
+    "price_numeric": 349.99
+  },
+  {
+    "name": "Karty Pokémon TCG: SV Spring Azure Legends Tin - Xerneas ex",
+    "price": "119,99 zł",
+    "price_numeric": 119.99
+  },
+  {
+    "name": "Pokémon TCG: Unova Mini Tin - Chandelure - Zoura",
+    "price": "49,99 zł",
+    "price_numeric": 49.99
+  },
+  {
+    "name": "Karty Pokemon TCG, My First Battle Pikachu/Bulbasaur",
+    "price": "56,99 zł",
+    "price_numeric": 56.99
+  },
+  {
+    "name": "Pokémon TCG: Unova Mini Tin - Volcarona - Emolga",
+    "price": "49,99 zł",
+    "price_numeric": 49.99
+  },
+  {
+    "name": "Pokémon TCG: Unova Mini Tin - Elektross - Galvantula",
+    "price": "49,99 zł",
+    "price_numeric": 49.99
+  },
+  {
+    "name": "Karty Pokémon TCG: Slashing Legends Tin - Koraidon ex",
+    "price": "129,99 zł",
+    "price_numeric": 129.99
+  },
+  {
+    "name": "Karty Pokémon TCG: Scarlet & Violet - Journey Together - Premium Checklane Blister - Klinklang",
+    "price": "39,99 zł",
+    "price_numeric": 39.99
+  },
+  {
+    "name": "Karty Pokémon TCG: Paradox Rift Premium Checklane Blister Tinkaton",
+    "price": "389,99 zł",
+    "price_numeric": 389.99
+  },
+  {
+    "name": "Pokemon Trenuj ze Mną Magazyn",
+    "price": "19,99 zł",
+    "price_numeric": 19.99
+  },
+  {
+    "name": "Mata ULTRA PRO Pokemon Pikachu & Mimikyu Pokemon TCG",
+    "price": "88,99 zł",
+    "price_numeric": 88.99
+  },
+  {
+    "name": "Album na karty ULTRA PRO Pokemon 2 cale - Pikachu i Mimikyu Pokemon TCG",
+    "price": "59,99 zł",
+    "price_numeric": 59.99
+  }
+]
