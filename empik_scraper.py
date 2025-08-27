@@ -2,11 +2,15 @@ import requests
 from bs4 import BeautifulSoup
 import pandas
 import json
+from pathlib import Path
+import re
+import time
+import random
 
 
 URL = 'https://www.empik.com/szukaj/produkt?qtype=facetForm&q=pokemon+tcg&mpShopIdFacet=0'
 
-
+STATE_FILE = Path("state.json")
 
 def fetch_html(url):
     r = requests.get(url, timeout=20)
@@ -35,35 +39,97 @@ def get_items(soup):
         name_el = card.find('strong', class_ = 'ta-product-title')
         name = clean_text(name_el.get_text(" ", strip=True)) if name_el else ""
 
-        if name and price is not None:
-
-            price_numeric = price_to_numeric(price)
+        price_numeric = price_to_numeric(price)
+        if name and price_numeric:
             results.append({"name": name, "price": price, "price_numeric": price_numeric})
 
     return results
 
+def load_state() -> dict:
+    if STATE_FILE.exists():
+        try:
+            with open(STATE_FILE, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                if isinstance(data, dict):
+                    return {str(k): float(v) for k, v in data.items()}
+                elif isinstance(data, list):
+                    return {d["name"]: float(d["price_numeric"]) for d in data if "name" in d and "price_numeric" in d}
+        except Exception:
+            pass
+    return {}
 
-def create_snapshot():
-    pass
+def save_state(state_map: dict):
+    with open(STATE_FILE, "w", encoding="utf-8") as f:
+        json.dump(state_map, f, ensure_ascii=False, indent=2)
 
-# compare price from snapshot and json file
-def compare_price():
-    pass
+def compare_and_report(old_map: dict, current_items: list[dict]):
+    current_map = {item["name"]: item["price_numeric"] for item in current_items}
+
+    # Detect new & removed
+    old_names = set(old_map.keys())
+    cur_names = set(current_map.keys())
+
+    new_items = sorted(cur_names - old_names)
+    removed_items = sorted(old_names - cur_names)
+
+    # Detect price changes
+    common = old_names & cur_names
+    changes = []
+    for name in common:
+        old_p = old_map[name]
+        new_p = current_map[name]
+        # treat tiny FP variations as equal
+        if abs(new_p - old_p) >= 0.001:
+            diff = new_p - old_p
+            direction = "↑" if diff > 0 else "↓"
+            changes.append((name, old_p, new_p, diff, direction))
+    changes.sort(key=lambda x: x[0])
+
+    # --- Print report ---
+    if not new_items and not removed_items and not changes:
+        print("No changes since last run.")
+    else:
+        if changes:
+            print("Price changes:")
+            for name, old_p, new_p, diff, direction in changes:
+                print(f"  PRICE {direction}  {name}\n    {old_p:.2f} → {new_p:.2f}  (diff {diff:+.2f})")
+        if new_items:
+            print("\nNew items:")
+            for name in new_items:
+                print(f"  NEW       {name}  @ {current_map[name]:.2f}")
+        if removed_items:
+            print("\nRemoved items:")
+            for name in removed_items:
+                print(f"  REMOVED   {name}")
+
+    return current_map
 
 def to_json(items):
-    with open('items.json', 'w' ,encoding='utf-8') as f:
+    with open('state_4.json', 'w' ,encoding='utf-8') as f:
         json.dump(items, f, ensure_ascii=False, indent=2)
 
 if __name__ == "__main__":
-    try:
-        html = fetch_html(URL)
-        soup = BeautifulSoup(html, 'html.parser')
-        items = get_items(soup)
-        to_json(items)
-    except requests.HTTPError as e:
-        print(f"HTTP error: {e}")
-    except requests.RequestException as e:
-        print(f"Network error: {e}")
-        
-        
+    
+    while True:
+        try:
+            html = fetch_html(URL)
+            soup = BeautifulSoup(html, 'html.parser')
+            items = get_items(soup)
+            # to_json(items)
+            old_state = load_state()
+            new_state = compare_and_report(old_state, items)
+            save_state(new_state)
 
+        except requests.HTTPError as e:
+            print(f"HTTP error: {e}")
+        except requests.RequestException as e:
+            print(f"Network error: {e}")
+
+        # wait before next check
+        print("Sleeping for 15/40 seconds...\n")
+        try:
+            random_time = random.randint(15,40)
+            time.sleep(random_time)
+        except KeyboardInterrupt:
+            print("Stopped by user.")
+            break
