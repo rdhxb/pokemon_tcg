@@ -6,6 +6,7 @@ from pathlib import Path
 import re
 import time
 import random
+from discord_notify import notify_discord
 
 
 URL = 'https://www.empik.com/szukaj/produkt?qtype=facetForm&q=pokemon+tcg&mpShopIdFacet=0'
@@ -93,14 +94,17 @@ def compare_and_report(old_map: dict, current_items: list[dict]):
             print("Price changes:")
             for name, old_p, new_p, diff, direction in changes:
                 print(f"  PRICE {direction}  {name}\n    {old_p:.2f} → {new_p:.2f}  (diff {diff:+.2f})")
+                notify_discord(f"  PRICE {direction}  {name}\n    {old_p:.2f} → {new_p:.2f}  (diff {diff:+.2f})")
         if new_items:
             print("\nNew items:")
             for name in new_items:
                 print(f"  NEW       {name}  @ {current_map[name]:.2f}")
+                notify_discord(f"  NEW       {name}  @ {current_map[name]:.2f}")
         if removed_items:
             print("\nRemoved items:")
             for name in removed_items:
                 print(f"  REMOVED   {name}")
+                notify_discord(f"  REMOVED   {name}")
 
     return current_map
 
@@ -126,9 +130,9 @@ if __name__ == "__main__":
             print(f"Network error: {e}")
 
         # wait before next check
-        print("Sleeping for 15/40 seconds...\n")
+        print("Sleeping for 5/10 min...\n")
         try:
-            random_time = random.randint(15,40)
+            random_time = random.randint(300,600)
             time.sleep(random_time)
         except KeyboardInterrupt:
             print("Stopped by user.")
